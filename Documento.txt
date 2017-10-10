@@ -1,0 +1,15 @@
+(e) funções puras:
+O conceito desta função é que ela pode ser substituída pelo seu valor de retorno(definição matemática). Neste contexto uma função f que recebe como argumento x, sempre resolve para y, independente do estado do sistema onde está incluída e em contrapartida não altera de forma transparente o sistema quando é aplicada
+
+(f) avaliação preguiçosa: 
+É uma técnica/avaliação/execução de procedimentos sob uma coleção. É utilizada para atrasar a computação sobre uma coleção, quando o procedimento pode não ser necessário(ponto em que o resultado é suficiente), poupando tempo de execução
+
+	primo = lambda n: True not in (n%x == 0 for x in range(2,n))
+
+(g) iteradores:
+Sequencia de elementos geradas por meio de avaliação preguiçosa. Normalmente implementados através de um método next() que retorna o próximo elemento da coleção.
+	
+(h) geradores ou streams : 
+Geradores são tipos especiais de iteradores (funções ou expressões) que iteram sob coleções como também  à geram dinamicamente.
+
+
