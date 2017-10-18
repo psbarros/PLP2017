@@ -1,12 +1,12 @@
-def sem_elemento_k(lista, k):    
+def sem_elemento_k(lista, k):
     lista.remove(lista[k])
     return lista
 
 from random import randint
 def deque_embaralhado(deque):
-    lista = [] 
+    lista = []
     for i in range(len(deque)):
-        k = randint(0,len(deque)-1)        
+        k = randint(0,len(deque)-1)
         lista.append(deque[k])
         sem_elemento_k(deque, k)
     return lista
@@ -14,7 +14,7 @@ def deque_embaralhado(deque):
 def lista_mao(lista):
     mao = []
     for i in range(len(lista)):
-        mao.append(lista[i][0] + lista[i][1])        
+        mao.append(lista[i][0] + lista[i][1])
     return mao
 
 def retorna_valor(carta):
@@ -38,11 +38,17 @@ def retorna_valor(carta):
         return 9
     else:
         return 0
-    
+
 def valor_mao(lista):
     soma = 0
     for i in range(len(lista)):
         soma =  soma + retorna_valor(lista[i][0])
     return soma%10
 
-
+#QUESTAO 16
+def descartar(k, deque, mao, criterio_descarte):
+    if(criterio_descarte):
+        for i in range (0,k):
+            mao.append(deque[i])
+            sem_elemento_k(deque,i)
+    return mao
