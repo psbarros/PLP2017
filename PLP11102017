@@ -1,0 +1,124 @@
+/*
+uma pessoa eh feliz quando gosta de alguem que gosta dela, Gratel em particular, gosta de homens jovens e bonitos ou ricos e fortes. entre os rapazes que ela conhece,
+(1) hansel, joseph e petrus sao ricos
+(2) gislaberth e hansel sao fortes
+(3) petrus, hansel e andreas sao bonitos; e
+(4) frantz é jove,
+Sabendo que frantz, Petrus e hansel gostam de Gratel
+Gratel é feliz? */
+
+
+jovem(frantz).
+
+bonito(petrus).
+bonito(hansel).
+bonito(andreas).
+
+rico(hansel).
+rico(joseph).
+rico(petrus).
+
+forte(gisalberth).
+forte(hansel).
+
+gosta(frants, gratel)
+gosta(petrus, gratel)
+gosta(hansel, gratel)
+
+gosta(gratel, X) :-
+    jovem(X), 
+    bonito(X).
+
+gosta(gratel, X) :-
+    rico(X),
+    forte(X).
+feliz(X) :-
+    gosta(X, alguem),
+    gosta(alguem, X).
+
+---
+feliz(gratel) -> true
+gosta(gratel, X), gosta(x, gratel) -> true
+jovem(hansel), bonito(hansel) -> false
+rico(hansel), forte(hansel) -> true
+----
+
+modelos probalisticos e neuronais > modelos lógicos
+o mundo nao é logico bla bla bla 0 ou 1 
+-----
+
+write('oi mundo'), nl.
+
+predicado oi mundo e preciado nl sao sempre verdadeiros
+efeito colateral de avaliar 'oi mundo' é imprimir isso na tela
+efeito colatel de avaliar nl é pular uma linha
+
+tudo o que nao for representação lógica do mundo, em prolog, é efeito colateral
+
+------
+PAI(X,Y)        1:1
+FILHO(Y,X)      1:1
+
+sort([1,3,7,2],L)  
+L = [1,2,3,7]
+
+sort(L, [1,2,3,7])  1:N
+[7,3,2,1]
+[1,2,3,7]
+[2,3,7,1]
+
+-----
+
+/*
+sabendo o preço unitario de um produto x, definir valor_total(produto, qtde, x) = V se X é o valor total de qtde de pdoutos
+*/
+
+valor_unitario(pendrive, 20.0)
+valor_unitario(monitor17, 500.0)
+valor_unitario(iphoneX, 6000.0)
+
+valor_total(Produto, Qtde, ValorTotal) :-
+    valor_unitario(Produto, Preco),
+    ValorTotal is Preco * Qtde.
+
+----
+
+valor_total(monitor17, 10, X)
+
+----
+
+usar "is" para mostrar para a linguagem que nao é casamento de padrão / pattern ~match
+
+------
+
+functor 
+em java c++: classe que opera como uma função
+em porlog: uma forma funcional
+   
+isos é um functor -> produto(Nome, Valor) = produto(notebook, 1000).
+objeto que tem a forma de uma função
+serve para: descrever melhor o que estou falando (uma forma de dar nomes para as coisas)
+
+produto(Nome, valor) = produno(nome(notebook), preco_unitario(1000)). (mais descritivo ainda)
+
+------
+
+/*
+tamanho(L,N) = verdade, se N eh o tamanho de L
+tamanho([1,2,3],X) se X=3
+_ => a variavial nao importa
+*/
+
+tamanho([], 0).
+
+tamanho([_|T], N) :-
+    tamanho(T, TT).
+    N is 1 + TT.
+
+----
+
+fatorial(0,1).
+fatorial(N, F) :-
+    Nmenos1 is N - 1
+    fatorial(Nmenoes1, Nmenos1),
+    F is n * Fmenos1.
