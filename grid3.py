@@ -1,10 +1,5 @@
 from Tkinter import *
 
-#master = Tk()
-
-#w = Canvas(master, width=300, height=300)
-#w.pack()
-
 class Grid:
     def	__init__(self, master, lins, cols, cell_h = 50, cell_w = 50):
             self.cell_h	= cell_h
@@ -25,14 +20,15 @@ class Grid:
         x = col * self.cell_h
         y = lin * self.cell_w
         return self.w.create_rectangle(x, y, x+60, y+60, fill=cor, outline='')
-
-    def draw_circle(self, lin, col): 
+    
+#    def erase_square(self, lin, col):
+        
+    def draw_circle(self, lin, col, cor): 
         x = col	* self.cell_h
         y = lin	* self.cell_w  
         return	self.w.create_oval(x + 60, y + 60,
                 x + self.cell_w	- 60, y + self.cell_h - 60, 
-                fill = 'blue', outline ='')
-
+                fill=cor, outline ='')
 
 
 if __name__	== '__main__':	  
@@ -43,8 +39,17 @@ if __name__	== '__main__':
     w = Canvas(m, width=40, height=0)
     w.pack()
     
-
-    grid.draw_square(0,0,'green')
-
+    print ("Para sair: ^C")
+    
+    comandos = raw_input()    
+    while(comandos[0]!="x"):
+        aux = comandos.split(" ")
+        if((aux[0] =='+') & (aux[1] == 's')):
+            grid.draw_square(int(aux[3])-1,int(aux[4])-1,aux[2])
+        elif((aux[0]=='+') & (aux[1]=='c')):
+            grind.draw_circle(int(aux[3])-1,int(aux[4])-1,aux[2])
+#        elif():
+        
+        comandos = raw_input()    
     m.mainloop()
 
