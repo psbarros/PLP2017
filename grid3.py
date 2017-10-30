@@ -21,8 +21,11 @@ class Grid:
         y = lin * self.cell_w
         return self.w.create_rectangle(x, y, x+60, y+60, fill=cor, outline='')
     
-#    def erase_square(self, lin, col):
-        
+    def erase_square(self, lin, col):
+        x = col * self.cell_h
+        y = lin * self.cell_w
+        return self.w.create_rectangle(x, y, x+60, y+60, fill='', outline='')
+
     def draw_circle(self, lin, col, cor): 
         x = col	* self.cell_h
         y = lin	* self.cell_w  
@@ -45,11 +48,18 @@ if __name__	== '__main__':
     while(comandos[0]!="x"):
         aux = comandos.split(" ")
         if((aux[0] =='+') & (aux[1] == 's')):
-            grid.draw_square(int(aux[3])-1,int(aux[4])-1,aux[2])
+            grid.draw_square(int(aux[3]),int(aux[4]),aux[2])
         elif((aux[0]=='+') & (aux[1]=='c')):
-            grind.draw_circle(int(aux[3])-1,int(aux[4])-1,aux[2])
-#        elif():
-        
-        comandos = raw_input()    
+            grid.draw_circle(int(aux[3]),int(aux[4]),aux[2])
+        elif(aux[0] =='-'):
+            grid.erase_square(int(aux[3]),int(aux[4]))
+        elif((aux[0]=='m') & (aux[1]=='s')):     
+            grid.draw_square(int(aux[3]),int(aux[4]),'')
+            grid.draw_square(int(aux[3]),int(aux[4]),aux[2])
+        elif((aux[0]=='m') & (aux[1]=='c')):     
+            grid.draw_circle(int(aux[3]),int(aux[4]),'')
+            grid.draw_circle(int(aux[3]),int(aux[4]),aux[2])
+
+	comandos = raw_input()    
     m.mainloop()
 
