@@ -1,4 +1,4 @@
-from tkinter import *
+from Tkinter import *
 
 #master = Tk()
 
@@ -27,10 +27,51 @@ class Grid:
         return	self.w.create_oval(x + 10, y + 10,
                 x + self.cell_w	- 10, y + self.cell_h - 10, 
                 fill = 'blue', outline ='')
+class Quadrado(object):
+    
+    def __init__(self, w, x = 10, y = 10, lado = 100, cor = 'blue'):
+        self.w = w
+        self.x = x
+        self.y = y
+        self.lado = lado
+        self.cor = cor
+        self.id = -1
+    
+    def desenhar(self):
+        self.id = self.w.create_rectangle(self.x, self.y, 
+                                          self.x + self.lado, 
+                                          self.y + self.lado,
+                                          outline = self.cor)
+
+class Circulo(object):
+    
+    def __init__(self, w, x = 10, y = 10, raio = 100, cor = 'blue'):
+        self.w = w
+        self.x = x
+        self.y = y
+        self.raio = raio
+        self.cor = cor
+        self.id = -1
+    
+    def desenhar(self):
+        self.id = self.w.create_oval(self.x - self.raio, 
+                                     self.y - self.raio, 
+                                     self.x + self.raio, 
+                                     self.y + self.raio,
+                                     outline = self.cor)
 
 if __name__	== '__main__':	  
-    root = Tk() 
-    root.title('Grid World')	  
-    grid =  Grid(root,5,5,cell_h = 60, cell_w = 60)  
-    app = Server(grid).start()
-    root.mainloop()
+    m = Tk() 
+    m.title('Grid World')	  
+    grid =  Grid(m,5,5,cell_h = 60, cell_w = 60)
+    
+    w = Canvas(m, width=400, height=400)
+    w.pack()
+
+   q = Quadrado(w, 10, 10, 10, 'green')
+    q.desenhar()
+
+#    c = Circulo(w, 10, 10, 20, 'blue')
+#    c.desenhar()
+
+    m.mainloop()
