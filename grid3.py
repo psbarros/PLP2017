@@ -21,10 +21,10 @@ class Grid:
             for	i in range(0, w,cell_w):  
                 self.w.create_line([(0,i),(w,i)])
 
-    def draw_square(self, lin, col):
+    def draw_square(self, lin, col, cor):
         x = col * self.cell_h
         y = lin * self.cell_w
-        return self.w.create_rectangle(x, y, x+60, y+60, fill='blue', outline='')
+        return self.w.create_rectangle(x, y, x+60, y+60, fill=cor, outline='')
 
     def draw_circle(self, lin, col): 
         x = col	* self.cell_h
@@ -44,7 +44,7 @@ if __name__	== '__main__':
     w.pack()
     
 
-    grid.draw_square(0,0)
+    grid.draw_square(0,0,'green')
 
     m.mainloop()
 
