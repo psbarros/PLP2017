@@ -1,0 +1,52 @@
+TIPOS DE DADOS:
+
+- 0 que são?
+		
+- Para que servem?
+
+1) Definição de estrutura interna
+2) Representação(*)
+3) Especificação de domínio
+4) Definição de interface -> Especificação de operações possíveis
+Ex: S = S1 + S2 
+	Nao sabe-se se o + é adiçao, pois nao é conhecido o tipo das variávis. Se for string pode ser concatenação.
+5) Definir classes equivalentes de objetos
+6) Servem para dar contexto
+7) Fazer checagem (diminuir possibilidade de cometer erros)
+
+----------
+
+SISTEMAS DE TIPOS:
+
+- Como se classificam
+1. Dinâmico
+definir implicito
+
+2. Estático
+definir explícito
+
+3. Fraco
+
+4. Forte
+- Para que servem?
+
+- O que é?
+ Mecanismo que implementa tipos, checagem, contexto, etc
+
+Estático e dinamico -> especificação
+
+------
+
+Sistemas de tipos
+
+Tipos 
+discretos (contáveis)
+	int, logico, caractere, subrange, enumeração
+escalares (distancia)
+	real, complexo, tempo
+compostos
+	vetor/matrizes
+	strigns
+	struct (registro)
+	listas
+
