@@ -1,0 +1,14 @@
+Executar:
+
+python3 server.py
+
+swipl teste.pl
+
+entradas do prog em prolog
+
+- consult('teste.pl').
+- go_socket
+
+criar circulo azul em 11
+
+

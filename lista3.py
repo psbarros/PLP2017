@@ -24,6 +24,7 @@ class Grid:
 
     def within_grid(self, lin, col):
         return lin >= 0 and lin < self.maxlins and col >= 0 and col < self.maxcols
+
     def draw_circle(self, lin, col, color):
         if not self.within_grid(lin, col):
             return -1
@@ -43,6 +44,7 @@ class Grid:
 
     def delete(self, id):
         self.w.delete(id)
+
 class Fig:
     def __init__(self, grid, x, y, color):
         self.id = -1
@@ -50,8 +52,10 @@ class Fig:
         self.x = x
         self.y = y
         self.color = color
+
     def draw(self):
         pass
+
     def erase(self):
         if self.id != -1:
                 self.grid.delete(self.id)
@@ -61,23 +65,26 @@ class Fig:
         self.x = x
         self.y = y
         self.draw()
+
 class Square(Fig):
     def __init__(self, grid, x, y, color):
         Fig.__init__(self, grid, x, y, color)
     def draw(self):
         self.id = self.grid.draw_square(self.x, self.y, self.color)
+
 class Circle(Fig):
     def __init__(self, grid, x, y, color):
         Fig.__init__(self, grid, x, y, color)
     def draw(self):
         self.id = self.grid.draw_circle(self.x, self.y, self.color)
+
 class Server(Thread):
     def __init__(self, grid):
         Thread.__init__(self)
         self.grid = grid
         self.figs = {}
-        self.server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        #self.server = socket()
+#        self.server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.server = socket()
         self.server.bind((HOST, PORT))
         self.server.listen(5)
         self.client, addr = self.server.accept()
@@ -128,6 +135,7 @@ color)
                     reply = 'Command not recognized: ' + cmd + '\n'
 
         return reply
+
     def run(self):
         while True:
             try:

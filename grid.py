@@ -49,7 +49,7 @@ if __name__	== '__main__':
         aux = comandos.split(" ")
         if((aux[0] =='+') & (aux[1] == 's')):
             grid.draw_square(int(aux[3]),int(aux[4]),aux[2])
-        elif((aux[0]=='+') & (aux[1]=='c')):
+        elif((aux[0]=='+') & (aux[1	]=='c')):
             grid.draw_circle(int(aux[3]),int(aux[4]),aux[2])
         elif(aux[0] =='-'):
             grid.erase_square(int(aux[3]),int(aux[4]))
